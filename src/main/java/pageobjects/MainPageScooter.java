@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -7,12 +7,8 @@ import org.openqa.selenium.WebDriver;
 // это Главная страница сервиса Самокат
 public class MainPageScooter {
     private WebDriver driver;
-
     //урл главной страницы
     private static final String MAIN_PAGE_URL = "https://qa-scooter.praktikum-services.ru/";
-    //часть страницы Вопросы о важном
-    //private static final By QUESTIONS_PART = By.xpath("//*[@id=\"root\"]/div/div/div[5]");
-
     //ЛОКАТОРЫ ВОПРОСОВ И ОТВЕТОВ
     // локатор 1го вопроса раскрывающегося списка
     private static final By FIRST_QUESTION_BUTTON = By.xpath("//div[text()='Сколько это стоит? И как оплатить?']");
@@ -47,11 +43,10 @@ public class MainPageScooter {
     // ответ на 8 вопрос
     private static final By EIGHTH_ANSWER_FIELD = By.xpath("//p[text()='Да, обязательно. Всем самокатов! И Москве, и Московской области.']");
 
-
     // локатор кнопки заказать верхней
     private static final By UPPER_ORDER_BUTTON = By.className("Button_Button__ra12g");
     // локатор кнопки заказать нижней
-    private static final By MIDDLE_ORDER_BUTTON = By.xpath("//*[@id=\"root\"]/div/div/div[4]/div[2]/div[5]/button");
+    private static final By MIDDLE_ORDER_BUTTON = By.xpath("//div[@class='Home_FinishButton__1_cWm']/button[text()='Заказать']");
 
     public MainPageScooter(WebDriver driver) {
         this.driver = driver;
@@ -68,7 +63,6 @@ public class MainPageScooter {
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", questionsPart);
         return this;
     }
-
     //клик на 1 вопрос
     public MainPageScooter clickFirstQuestionButton() {
         driver.findElement(FIRST_QUESTION_BUTTON).click();
@@ -78,7 +72,6 @@ public class MainPageScooter {
     public boolean isFirstAnswerTextTrue() {
         return driver.findElement(FIRST_ANSWER_FIELD).isDisplayed();
     }
-
     //клик на 2 вопрос
     public MainPageScooter clickSecondQuestionButton() {
         driver.findElement(SECOND_QUESTION_BUTTON).click();
@@ -88,7 +81,6 @@ public class MainPageScooter {
     public boolean isSecondAnswerTextTrue() {
         return driver.findElement(SECOND_ANSWER_FIELD).isDisplayed();
     }
-
     //клик на 3 вопрос
     public MainPageScooter clickThirdQuestionButton() {
         driver.findElement(THIRD_QUESTION_BUTTON).click();

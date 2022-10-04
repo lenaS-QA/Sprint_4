@@ -3,7 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.MainPageScooter;
+import pageobjects.MainPageScooter;
 import org.junit.Assert;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -11,13 +11,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class QuestionsTests {
  private WebDriver driver;
-
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/Users/elenasamsonova/Downloads/WebDriver/bin/chromedriver 2");
         driver = new ChromeDriver();
     }
-
     @Test
    public void checkAnswer1() {
         driver.manage().timeouts().implicitlyWait(5, SECONDS);

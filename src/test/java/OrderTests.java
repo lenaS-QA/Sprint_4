@@ -4,24 +4,20 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObjects.AboutRentPage;
-import pageObjects.ForWhomInformationPage;
-import pageObjects.MainPageScooter;
+import pageobjects.AboutRentPage;
+import pageobjects.ForWhomInformationPage;
+import pageobjects.MainPageScooter;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-
 public class OrderTests {
-
     private WebDriver driver;
-
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/Users/elenasamsonova/Downloads/WebDriver/bin/chromedriver 2");
         driver = new ChromeDriver();
 }
-
-@Test
-public void checkFinalOrderPlateWithUpperOrderButton() {
+    @Test
+    public void checkFinalOrderPlateWithUpperOrderButton() {
     driver.manage().timeouts().implicitlyWait(5, SECONDS);
 
     MainPageScooter mainPageScooter = new MainPageScooter(driver);
@@ -45,9 +41,7 @@ public void checkFinalOrderPlateWithUpperOrderButton() {
 
     Assert.assertTrue(
             "Expected Final Order Plate isn't visible", aboutRentPage.isFinalOrderPlateVisible());
-
     }
-
     @Test
     public void checkFinalOrderPlateWithMiddleOrderButton() {
         driver.manage().timeouts().implicitlyWait(5, SECONDS);
@@ -74,10 +68,7 @@ public void checkFinalOrderPlateWithUpperOrderButton() {
 
         Assert.assertTrue(
                 "Expected Final Order Plate isn't visible", aboutRentPage.isFinalOrderPlateVisible());
-
     }
-
-
     @After
     public void cleanUp() {
         driver.quit();

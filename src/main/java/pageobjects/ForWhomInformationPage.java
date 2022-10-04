@@ -1,4 +1,4 @@
-package pageObjects;
+package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -6,21 +6,19 @@ import org.openqa.selenium.WebDriver;
 
 // страница формы "Для кого самокат"
 public class ForWhomInformationPage {
-
     private WebDriver driver;
-
     // поле имя
-    private By nameField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[1]/input");
+    private By nameField = By.xpath(".//input[@placeholder='* Имя']");
     // фамилия
-    private By familyField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[2]/input");
+    private By familyField = By.xpath(".//input[@placeholder='* Фамилия']");
     // адрес
-    private By addressField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[3]/input");
+    private By addressField = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");
     // станция метро (выпад.список)
-    private By metroStationField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[4]/div/div/input");
+    private By metroStationField = By.xpath(".//input[@placeholder='* Станция метро']");
     // телефон
-    private By telephoneField = By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div[5]/input");
+    private By telephoneField = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     // кнопка Далее
-    private By nextButton = By.xpath("//*[@id=\"root\"]/div/div[2]/div[3]/button");
+    private By nextButton = By.xpath("//button[text()='Далее']");
 
     public ForWhomInformationPage(WebDriver driver) {
         this.driver = driver;
@@ -33,7 +31,6 @@ public class ForWhomInformationPage {
         driver.findElement(familyField).sendKeys(userFamily);
         return this;
     }
-
     public ForWhomInformationPage fillAddressField(String userAddress) {
         driver.findElement(addressField).sendKeys(userAddress);
         return this;
@@ -52,5 +49,4 @@ public class ForWhomInformationPage {
         driver.findElement(nextButton).click();
         return new ForWhomInformationPage(driver);
     }
-
 }
